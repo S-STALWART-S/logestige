@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "files": [
     "./lib/**/*",
-    "./global.d.ts"
+    "./src/types/global.d.ts"
   ],
   "repository": {
     "type": "git",

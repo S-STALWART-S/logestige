@@ -1,4 +1,4 @@
-/// <reference path="../global.d.ts" />
+/// <reference path="./types/global.d.ts" />
 
 import { Logestige } from "./classes/Logestige";
 

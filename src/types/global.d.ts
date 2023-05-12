@@ -1,4 +1,4 @@
-import { ConsoleDirOptions, LevelName } from "./src/types";
+import { ConsoleDirOptions, LevelName } from ".";
 
 declare global {
   interface Console {
