@@ -12,7 +12,7 @@
     "url": "https://github.com/S-STALWART-S/log-man"
   },
   "license": "MIT",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "scripts": {
     "build": "tsc",
     "check:format": "prettier --write ./",
