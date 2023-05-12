@@ -27,3 +27,15 @@ export interface ConsoleDirOptions {
   showProxy: boolean;
   sorted: boolean;
 }
+
+declare global {
+  interface Console {
+    dir(
+      levelName: LevelName,
+      item: any,
+      options?: Partial<ConsoleDirOptions>
+    ): void;
+
+    log(levelName: LevelName, ...items: any[]): void;
+  }
+}
