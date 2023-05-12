@@ -18,7 +18,7 @@
     "check:format": "prettier --write ./",
     "check:lint": "eslint ./",
     "check:style": "npm run check:format && npm run check:lint",
-    "start": "ts-node ./playground.ts",
+    "start": "ts-node ./src",
     "test:dev": "jest"
   },
   "engines": {

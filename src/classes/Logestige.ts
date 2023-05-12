@@ -17,6 +17,9 @@ function AutoBind(
     get() {
       return descriptor.value.bind(this);
     },
+    set(v) {
+      descriptor.value = v.bind(this);
+    },
   } as PropertyDescriptor;
 }
 
