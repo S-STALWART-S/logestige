@@ -16,7 +16,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES5",
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./node_modules/@types"]
   },
   "exclude": ["node_modules"],
   "include": ["src", "global.d.ts"],
