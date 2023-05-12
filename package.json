@@ -13,7 +13,7 @@
     "url": "https://github.com/S-STALWART-S/logestige"
   },
   "license": "MIT",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "scripts": {
     "build": "tsc",
     "check:format": "prettier --write ./",
