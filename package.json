@@ -1,0 +1,61 @@
+{
+  "author": "S-STALWART-S",
+  "name": "log-man",
+  "description": "Node.js logger with colorizing and leveling feature",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/S-STALWART-S/log-man"
+  },
+  "license": "MIT",
+  "version": "5.0.0",
+  "scripts": {
+    "build": "tsc",
+    "check:format": "prettier --write ./",
+    "check:lint": "eslint ./",
+    "check:style": "npm run check:format && npm run check:lint",
+    "start": "ts-node ./playground.ts",
+    "test:dev": "jest"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "keywords": [
+    "console",
+    "log-man",
+    "logman",
+    "logger-node",
+    "logger",
+    "node-logger"
+  ],
+  "dependencies": {
+    "custom-typeof": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
+    "@cspell/eslint-plugin": "^6.31.1",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "confusing-browser-globals": "^1.0.11",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.7.1",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-testing-library": "^5.10.3",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.7",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1"
+  }
+}
