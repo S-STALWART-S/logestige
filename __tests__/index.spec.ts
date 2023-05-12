@@ -1,10 +1,10 @@
-import { consoleMethods, LogMan } from "../src/classes/LogMan";
+import { consoleMethods, Logestige } from "../src/classes/Logestige";
 
 describe("Logger", () => {
-  let logger: LogMan;
+  let logger: Logestige;
 
   beforeEach(() => {
-    logger = new LogMan();
+    logger = new Logestige();
   });
 
   it("should initialize with default log levels", () => {
