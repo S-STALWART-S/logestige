@@ -1,4 +1,4 @@
-import { ConsoleDirOptions, LevelName } from ".";
+import { ConsoleDirOptions, LevelName } from "./src/types";
 
 declare global {
   interface Console {
@@ -7,8 +7,7 @@ declare global {
       item: any,
       options?: Partial<ConsoleDirOptions>
     ): void;
-    log(levelName: LevelName, ...items): void;
+
+    log(levelName: LevelName, ...items: any[]): void;
   }
 }
-
-export {};

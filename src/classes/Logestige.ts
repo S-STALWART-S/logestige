@@ -24,7 +24,7 @@ export const consoleMethods = { ...console };
 
 export class Logestige {
   logs: LogItem[] = [];
-  protected levels: Levels = this.getDefaultLevels();
+  levels: Levels = this.getDefaultLevels();
 
   getDefaultLevels() {
     return {
@@ -96,6 +96,7 @@ export class Logestige {
     console.warn = this.warn;
     console.error = this.error;
     console.clear = this.clear;
+    console.log = this.log;
   }
 
   private clearLogs() {
