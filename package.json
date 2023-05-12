@@ -1,6 +1,6 @@
 {
   "author": "S-STALWART-S",
-  "name": "log-man",
+  "name": "logestige",
   "description": "Node.js logger with colorizing and leveling feature",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,10 +9,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/S-STALWART-S/log-man"
+    "url": "https://github.com/S-STALWART-S/logestige"
   },
   "license": "MIT",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "scripts": {
     "build": "tsc",
     "check:format": "prettier --write ./",
