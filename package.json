@@ -4,6 +4,7 @@
   "description": "Node.js logger with colorizing and leveling feature",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "typings": "global.d.ts",
   "files": [
     "lib/**/*"
   ],
