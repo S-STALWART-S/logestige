@@ -22,7 +22,7 @@ function AutoBind(
 
 export const consoleMethods = { ...console };
 
-export class LogMan {
+export class Logestige {
   logs: LogItem[] = [];
   levels: Levels = this.getDefaultLevels();
 
@@ -96,6 +96,7 @@ export class LogMan {
     console.warn = this.warn;
     console.error = this.error;
     console.clear = this.clear;
+    console.log = this.log;
   }
 
   private clearLogs() {

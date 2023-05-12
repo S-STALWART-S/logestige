@@ -23,7 +23,8 @@
     "coverage": false,
     "lib": false,
     ".eslintrc.cjs": false,
-    "jest.config.ts": false
+    "jest.config.ts": false,
+    "global.d.ts": false
   },
   "explorerExclude.backup": {}
 }
