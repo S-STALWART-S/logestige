@@ -1,33 +1,38 @@
+import { StackMan } from "./StackMan";
+
 import {
   ConsoleDirOptions,
   LevelName,
   Levels,
   LogItem,
   LogMethod,
+  StackManOptions,
 } from "../types";
 
-function AutoBind(
-  _target: any,
-  _methodName: string,
-  descriptor: PropertyDescriptor
-) {
-  return {
-    configurable: true,
-    enumerable: false,
-    get() {
-      return descriptor.value.bind(this);
-    },
-    set(v) {
-      descriptor.value = v.bind(this);
-    },
-  } as PropertyDescriptor;
-}
-
 export const consoleMethods = { ...console };
+
+type GlobalOptions = StackManOptions & { withPrefix: boolean };
+
+const globalOptions: GlobalOptions = {
+  fullLine: true,
+  withPrefix: false,
+};
 
 export class Logestige {
   logs: LogItem[] = [];
   levels: Levels = this.getDefaultLevels();
+  private options = globalOptions;
+
+  static changeGlobalOptions(
+    newOptions: Partial<GlobalOptions> = globalOptions
+  ) {
+    const options = {
+      ...globalOptions,
+      ...newOptions,
+    };
+    globalOptions.fullLine = options.fullLine;
+    globalOptions.withPrefix = options.withPrefix;
+  }
 
   getDefaultLevels() {
     return {
@@ -117,6 +122,9 @@ export class Logestige {
       return;
     }
 
+    const prefix = this.fixPrefix(level);
+    if (prefix) this.logs.unshift(prefix);
+
     if (logMethod === "dir") {
       consoleMethods.log(...this.logs);
       consoleMethods.dir(text, options);
@@ -127,7 +135,34 @@ export class Logestige {
     this.clearLogs();
   }
 
+  private fixPrefix(level: LevelName) {
+    return this.options.withPrefix ? this.getPrefix(level) : "";
+  }
+
+  private getPrefix(level: LevelName): string {
+    const stackMan = new StackMan(this.options.fullLine);
+
+    return `[${level}] ${stackMan.getFileName()}`;
+  }
+
   private canNotSend(levelName: LevelName) {
     return this.levels[levelName] === false;
   }
+}
+
+function AutoBind(
+  _target: any,
+  _methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  return {
+    configurable: true,
+    enumerable: false,
+    get() {
+      return descriptor.value.bind(this);
+    },
+    set(v) {
+      descriptor.value = v.bind(this);
+    },
+  } as PropertyDescriptor;
 }
