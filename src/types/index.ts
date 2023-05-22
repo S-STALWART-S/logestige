@@ -39,3 +39,7 @@ declare global {
     log(levelName: LevelName, ...items: any[]): void;
   }
 }
+
+export interface StackManOptions {
+  fullLine: boolean;
+}
