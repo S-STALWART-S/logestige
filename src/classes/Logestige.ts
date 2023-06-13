@@ -23,6 +23,18 @@ export class Logestige {
   levels: Levels = this.getDefaultLevels();
   private options = globalOptions;
 
+  constructor() {
+    this.updateLevel = this.updateLevel.bind(this);
+    this.log = this.log.bind(this);
+    this.dir = this.dir.bind(this);
+    this.info = this.info.bind(this);
+    this.error = this.error.bind(this);
+    this.warn = this.warn.bind(this);
+    this.debug = this.debug.bind(this);
+    this.clear = this.clear.bind(this);
+    this.overrideConsole = this.overrideConsole.bind(this);
+  }
+
   static changeGlobalOptions(
     newOptions: Partial<GlobalOptions> = globalOptions
   ) {
@@ -63,42 +75,33 @@ export class Logestige {
     });
   }
 
-  @AutoBind
   updateLevel(n: LevelName, value: boolean) {
     this.levels[n] = value;
   }
 
-  @AutoBind
   log(levelName: LevelName, ...text: LogItem[]) {
     this.stdOut(levelName, text, "log");
   }
-  @AutoBind
   dir(levelName: LevelName, item: any, options?: Partial<ConsoleDirOptions>) {
     this.stdOut(levelName, item, "dir", options);
   }
-  @AutoBind
   info(...text: LogItem[]) {
     this.stdOut("info", text, "info");
   }
-  @AutoBind
   error(...text: LogItem[]) {
     this.stdOut("error", text, "error");
   }
-  @AutoBind
   warn(...text: LogItem[]) {
     this.stdOut("warn", text, "warn");
   }
-  @AutoBind
   debug(...text: LogItem[]) {
     this.stdOut("debug", text, "debug");
   }
-  @AutoBind
   clear() {
     consoleMethods.clear();
     return this;
   }
 
-  @AutoBind
   overrideConsole() {
     console.dir = this.dir;
     console.warn = this.warn;
@@ -148,21 +151,4 @@ export class Logestige {
   private canNotSend(levelName: LevelName) {
     return this.levels[levelName] === false;
   }
-}
-
-function AutoBind(
-  _target: any,
-  _methodName: string,
-  descriptor: PropertyDescriptor
-) {
-  return {
-    configurable: true,
-    enumerable: false,
-    get() {
-      return descriptor.value.bind(this);
-    },
-    set(v) {
-      descriptor.value = v.bind(this);
-    },
-  } as PropertyDescriptor;
 }

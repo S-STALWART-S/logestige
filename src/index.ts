@@ -1,3 +1,1 @@
-import { Logestige } from "./classes/Logestige";
-
-export { Logestige };
+export { Logestige } from "./classes/Logestige";
